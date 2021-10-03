@@ -12,6 +12,13 @@
     #accordionjob .card-body{
         padding: 15px !important;
     }
+    .banner-quetos h6{
+        font-size: 22px !important;
+    }
+
+    .banner-quetos{
+        width: 100% !important;
+    }
 
     .job-position{
        display: flex;

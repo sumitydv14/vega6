@@ -20,7 +20,7 @@ function Footer() {
                                         technology has to keep and be in complete consonance with the
                                         competitive strategies of our clients and businesses we service.
                                     </p>
-                                    <a href="!#">READ MORE</a>
+                                    <Link to="/about">READ MORE</Link>
                                 </div>
                             </div>
                             <div className="col-lg-2 d-flex justify-content-lg-center col-md-6 col-6">
@@ -88,6 +88,16 @@ function Footer() {
                                             <li>
                                                 <a href="!#">
                                                 <i class="fab fa-linkedin-in"/>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="!#">
+                                                <i class="fab fa-twitter"/>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="!#">
+                                                <i class="fab fa-youtube"/>
                                                 </a>
                                             </li>
                                            

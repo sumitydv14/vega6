@@ -1,58 +1,26 @@
 import React, { useState } from 'react'
 import svg from '../images/svg.jpg';
 import swal from 'sweetalert';
-import { Link } from 'react-router-dom';
+import { Link , useHistory } from 'react-router-dom';
 import CarrerRecuriment from './CarrerRecuriment';
+import ReactRecuriment from './ReactRecuriment';
+import MobileappRecuriment from './MobileappRecuriment';
+import UIUXRecuriment from './UIUXRecuriment';
+import TechnicalRecuriment from './TechnicalRecuriment';
+import SoftwareTesterRecuriment from './SoftwareTesterRecuriment';
+
 
 function CarrerDetailsForm() {
 
+    let url =  window.location.href;
+    let type =  url.split('#')[1];
+    console.log( url.split('#')[1])
 
-    // const [user , setUser] = useState({
-    //     fname:'',
-    //     lname:'',
-    //     email:'',
-    //     phone:'',
-    //     applyposition:'',
-    //     date:'',
-    //     empstatus:'',
-    //     file:''
-    // });
+    const history = useHistory();
 
-
-
-
-    // const onInputChange = (e) =>{
-    //     setUser({...user ,[e.target.name]: e.target.value});
-    // }
-
-    // const onFormSubmit = (e) =>{
-    //     e.preventDefault();
-
-
-    //     console.warn(user)
-
-    //     setUser({
-    //         fname:'',
-    //         lname:'',
-    //         email:'',
-    //         phone:'',
-    //         applyposition:'',
-    //         date:'',
-    //         file:'',
-    //         empstatus:''
-
-    //     });
-
-    //     swal({
-    //         title: "Form  Submited",
-    //         text: ` ${user.fname} Thank you form  is submited successfully !`,
-    //         icon: "success",
-    //         button: "OK",
-    //       });
-
-    // }
-
-
+    const toCarrerForm = (e) =>{
+        history.push('/carrerform' , { params : e });
+    }
 
     return (
 
@@ -62,12 +30,14 @@ function CarrerDetailsForm() {
                     <div className="col-lg-10 mx-auto col-md-11 col-sm-12 col-12">
                         <h6>Back to Carrer</h6>
                         <div className="accordion" id="accordionjob">
+
+
                             <div className="card">
                                 <div className="card-header pl-5"
                                     id="headingOne"
                                     data-toggle="collapse"
                                     data-target="#collapseOne"
-                                    aria-expanded="true"
+                                    aria-expanded={`${type == 'php-developer' ? true : false}`}
                                     aria-controls="collapseOne">
 
                                     <div className="card-details">
@@ -77,13 +47,15 @@ function CarrerDetailsForm() {
                                                 <h6><span>India</span> / Noida</h6>
                                             </div>
                                             <div className="apply-now">
-                                                <Link className="btn-change6" to="/carrerform">Apply Now</Link>                                                </div>
+                                                {/* <Link className="btn-change6" to="/carrerform">Apply Now</Link>  */}
+                                                <button className="btn-change6" onClick={(e) =>toCarrerForm("PHP Developer")}>Apply Now</button>                                               
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div
                                     id="collapseOne"
-                                    className="collapse show"
+                                    className={`collapse ${type == 'php-developer' ? 'show' : ''}`}
                                     aria-labelledby="headingOne"
                                     data-parent="#accordionjob"
                                 >
@@ -91,12 +63,15 @@ function CarrerDetailsForm() {
                                 </div>
                             </div>
 
+
+
+
                             <div className="card">
                                 <div className="card-header pl-5"
                                     id="headingTwo"
                                     data-toggle="collapse"
                                     data-target="#collapseTwo"
-                                    aria-expanded="false"
+                                    aria-expanded={`${type == 'react-developer' ? true : false}`}
                                     aria-controls="collapseTwo">
 
                                     <div className="card-details">
@@ -106,19 +81,23 @@ function CarrerDetailsForm() {
                                                 <h6><span>India</span> / Noida</h6>
                                             </div>
                                             <div className="apply-now">
-                                                <Link className="btn-change6" to="/carrerform">Apply Now</Link>                                                </div>
+                                            <button className="btn-change6" onClick={(e) =>toCarrerForm("REACT Developer")}>Apply Now</button>                                               
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div
                                     id="collapseTwo"
-                                    className="collapse"
+                                    className={`collapse ${type == 'react-developer' ? 'show' : ''}`}
                                     aria-labelledby="headingTwo"
                                     data-parent="#accordionjob"
                                 >
-                                    <CarrerRecuriment />
+                                    <ReactRecuriment/>
                                 </div>
                             </div>
+
+
+                            
 
                             <div className="card">
                                 <div className="card-header pl-5"
@@ -135,7 +114,7 @@ function CarrerDetailsForm() {
                                                 <h6><span>India</span> / Noida</h6>
                                             </div>
                                             <div className="apply-now">
-                                                <Link className="btn-change6" to="/carrerform">Apply Now</Link>                                                </div>
+                                            <button className="btn-change6" onClick={(e) =>toCarrerForm("Mobile Application Developer")}>Apply Now</button>                                               </div>
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +124,7 @@ function CarrerDetailsForm() {
                                     aria-labelledby="headingThree"
                                     data-parent="#accordionjob"
                                 >
-                                    <CarrerRecuriment />
+                                  <MobileappRecuriment/>
                                 </div>
                             </div>
 
@@ -164,7 +143,7 @@ function CarrerDetailsForm() {
                                                 <h6><span>India</span> / Noida</h6>
                                             </div>
                                             <div className="apply-now">
-                                                <Link className="btn-change6" to="/carrerform">Apply Now</Link>                                                </div>
+                                            <button className="btn-change6" onClick={(e) =>toCarrerForm("UI / UX Developer")}>Apply Now</button>                                                  </div>
                                         </div>
                                     </div>
                                 </div>
@@ -174,36 +153,7 @@ function CarrerDetailsForm() {
                                     aria-labelledby="headingfour"
                                     data-parent="#accordionjob"
                                 >
-                                    <CarrerRecuriment />
-                                </div>
-                            </div>
-
-                            <div className="card">
-                                <div className="card-header pl-5"
-                                    id="headingfour"
-                                    data-toggle="collapse"
-                                    data-target="#collapsefour"
-                                    aria-expanded="false"
-                                    aria-controls="collapsefour">
-
-                                    <div className="card-details">
-                                        <div className="job-position d-flex justify-content-between">
-                                            <div className="opport-para  mt-4">
-                                                <h4>Technical Customer Support</h4>
-                                                <h6><span>India</span> / Noida</h6>
-                                            </div>
-                                            <div className="apply-now">
-                                                <Link className="btn-change6" to="/carrerform">Apply Now</Link>                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    id="collapsefour"
-                                    className="collapse"
-                                    aria-labelledby="headingfour"
-                                    data-parent="#accordionjob"
-                                >
-                                    <CarrerRecuriment />
+                                   <UIUXRecuriment/>
                                 </div>
                             </div>
 
@@ -218,11 +168,11 @@ function CarrerDetailsForm() {
                                     <div className="card-details">
                                         <div className="job-position d-flex justify-content-between">
                                             <div className="opport-para  mt-4">
-                                                <h4>Software Tester</h4>
+                                                <h4>Technical Customer Support</h4>
                                                 <h6><span>India</span> / Noida</h6>
                                             </div>
                                             <div className="apply-now">
-                                                <Link className="btn-change6" to="/carrerform">Apply Now</Link>                                                </div>
+                                            <button className="btn-change6" onClick={(e) =>toCarrerForm("PHP Developer")}>Apply Now</button>                                                  </div>
                                         </div>
                                     </div>
                                 </div>
@@ -232,33 +182,41 @@ function CarrerDetailsForm() {
                                     aria-labelledby="headingfive"
                                     data-parent="#accordionjob"
                                 >
-                                    <CarrerRecuriment />
+                                    <TechnicalRecuriment/>
+                                </div>
+                            </div>
+
+                            <div className="card">
+                                <div className="card-header pl-5"
+                                    id="headingsix"
+                                    data-toggle="collapse"
+                                    data-target="#collapsesix"
+                                    aria-expanded="false"
+                                    aria-controls="collapsesix">
+
+                                    <div className="card-details">
+                                        <div className="job-position d-flex justify-content-between">
+                                            <div className="opport-para  mt-4">
+                                                <h4>Software Tester</h4>
+                                                <h6><span>India</span> / Noida</h6>
+                                            </div>
+                                            <div className="apply-now">
+                                                <Link className="btn-change6" to="/carrerform">Apply Now</Link>                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    id="collapsesix"
+                                    className="collapse"
+                                    aria-labelledby="headingsix"
+                                    data-parent="#accordionjob"
+                                >
+                                    <SoftwareTesterRecuriment/>
                                 </div>
                             </div>
                            
 
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     </div>
                 </div>

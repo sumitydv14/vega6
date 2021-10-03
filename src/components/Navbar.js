@@ -60,6 +60,16 @@ function Navbar() {
                                                 <i class="fab fa-linkedin-in"/>
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a href="!#">
+                                                <i class="fab fa-twitter"/>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="!#">
+                                                <i class="fab fa-youtube"/>
+                                                </a>
+                                            </li>
                                             
                                         </ul>
                                     </div>

@@ -33,7 +33,7 @@ function HomeUpcoming() {
                         <div className="row mt-5">
                             <div className="col-md-12 col-lg-6 justify-content-center d-flex">
                                 <div className="sec-3-img">
-                                    <iframe src="https://player.vimeo.com/video/610562175?autoplay=1&loop=1"  width="620px" height="430px" mute="0"  allow='autoplay'  style={{border:"none"}} ></iframe> 
+                                    <iframe src="https://player.vimeo.com/video/610562175?autoplay=1&loop=1"  width="620px" height="354px" mute="0"  allow='autoplay'  style={{border:"none"}} ></iframe> 
                                 </div>
                             </div>
                             <div className="col-md-12 col-lg-6 ">

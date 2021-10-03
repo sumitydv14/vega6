@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import swal from 'sweetalert';
+import { useLocation } from 'react-router-dom';
 
 function CarrerFormpart() {
-
+    const location = useLocation();
+    const myparam = location.state.params;
+    console.warn(myparam);
     const [user, setUser] = useState({
 
         fname: '',
@@ -13,6 +16,7 @@ function CarrerFormpart() {
     })
 
 
+    
 
     const OnInputChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
@@ -53,7 +57,7 @@ function CarrerFormpart() {
                                     <div className="col-md-6 p-0">
                                         <div className="jop-position">
                                             <h6>You are applying for </h6>
-                                            <h3>android developer </h3>
+                                            <h3>{myparam}</h3>
                                         </div>
                                     </div>
                                     <div className="col-md-6 p-0">
